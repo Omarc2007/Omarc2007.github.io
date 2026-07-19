@@ -1,77 +1,89 @@
 /* CSS DOCUMENT */
 
-html, body, div, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
-blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
-em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt,
-var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label,
-legend, table, caption, tbody, tfoot, thead, tr, th, td, article,
-aside, canvas, details, embed, figure, figcaption, footer, header,
-hgroup, menu, nav, output, ruby, section, summary, time, mark, audio,
-video {
+html, body, div, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
     font-size: 100%;
     font: inherit;
 }
-
-body {
-    font-family: sans-serif;
-    background: #222222;
-    color: #111111;
-}
+/*
+My edited version of Eric Meyer’s reset tool.
+You may want to include this in all of your future CSS files.
+*/
 
 div.home-container {
-    background: url('home-background.jpg') center center fixed;
+    background: url(home-background.jpg) center center fixed;
     background-size: cover;
     position: relative;
     min-height: 100vh;
+    max-width: 75em;
+    margin: auto;
 }
 
 div.container {
     position: relative;
     min-height: 100vh;
-    background: #ffffff;
+    max-width: 75em;
+    margin: auto;
+    background-color: rgb(250, 250, 250);
+}
+
+/*
+IMPORTANT: You have to change the wrapper of the content on your home
+page (index) to a div with the class home-container to make it work.
+
+If you used a div with the class container on your home page, you only
+need to change the class name.
+
+You need a div with the class container on all the other pages.
+*/
+
+body {
+    font-family: sans-serif;
+}
+
+article {
+    background-color: rgb(0, 255, 255);
+    max-width: 38em;
+    margin: auto;
 }
 
 main {
-    padding: 2em 1.5em 5em;
+    padding: 2em 2.5em 5em;
 }
 
 img {
-    width: 100%;
+    width: 100%; /* Please leave this line. */
     display: block;
 }
 
 header {
     display: grid;
-    grid-template-columns: auto 1fr;
-    background: #dddddd;
-    padding: 1em 1.5em;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgb(204, 204, 204);
+    padding: 1em 1em 1em;
+    align-items: center;
 }
 
 h1 {
-    width: 8em;
+    width: 15em;
 }
 
 h2,
 h3,
 h4 {
-    font-weight: 700;
+    font-weight: bold;
 }
 
 h2 {
-    font-size: 2em;
-    margin: 1.5em 0 1em;
+    font-size: 1.9em;
+    margin: 1.2rem 0rem 0.2rem;
 }
 
 h3 {
-    font-size: 1.4em;
-    margin: 2em 0 1em;
-}
-
-h4 {
-    font-size: 1em;
+    font-size: 1.3em;
+    margin: 1.5rem 0rem 1rem;
 }
 
 a {
@@ -82,99 +94,104 @@ nav ul {
     text-align: right;
 }
 
-nav ul li {
-    list-style-type: none;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 0.6em;
-}
-
-nav ul li a {
-    color: #ffff00;
-    background-color: #0000cc;
-    padding: 0.3em 0.5em;
-}
-
 ul li {
     list-style-type: none;
 }
 
+nav ul li.selected a {
+    background-color: rgb(255, 135, 24);
+    color: rgb(255, 252, 252);
+}
+
 figure {
-    margin-bottom: 1.5em;
-}
-
-main.menu ul {
-    margin: 1.5em 0;
-}
-
-main.menu ul li {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-        "name price"
-        "description description";
-    gap: 0.25em;
     margin-bottom: 2em;
 }
 
-main.menu h4 {
-    grid-area: name;
+main.menu ul {
+    margin: 2.5em 0rem;
+}
+
+main.menu ul li {
+    margin: 1.8em 0em 0em;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
 }
 
 p {
-    margin: 0 0 1em;
-    line-height: 1.3;
+    margin: 1rem 0rem 1rem;
 }
 
 p.description {
-    grid-area: description;
-    margin: 0;
+    grid-column: 1 / 2;
+    margin: 0em 0em;
 }
 
 p.price {
-    grid-area: price;
-    color: #ff2a1f;
+    grid-row: 1;
+    grid-column: 2;
+    color: rgb(255, 30, 27);
     text-align: right;
-    margin: 0;
+    margin: 0.1rem;
+}
+
+nav ul li {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 1.7em;
+}
+
+nav ul li a {
+    color: rgb(247, 247, 20);
+    background-color: rgb(0, 5, 246);
+    padding: 0.5em 0.5em 0.5em;
 }
 
 p.slogan {
-    font-size: 3em;
+    font-size: 4.6em;
     font-family: serif;
     font-style: italic;
-    margin: 1em 0 12em;
-    color: #ffffff;
-}
-
-address {
-    color: #ff8c00;
-    font-style: normal;
+    margin: 0em 0em 2em;
+    color: rgb(250, 250, 250);
 }
 
 footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 3em;
+    height: 3rem;
     box-sizing: border-box;
-    padding: 0.8em 1.5em;
-    background: #ffff66;
+    padding: 1em 1em;
+    background-color: rgb(250, 250, 54);
+}
+
+address {
+    color: rgb(255, 135, 24);
+    text-decoration: none;
 }
 
 footer p {
-    margin: 0;
+    margin: 0em;
 }
 
-@media screen and (max-width: 600px) {
-    header {
-        grid-template-columns: 1fr auto;
+div {
+    max-width: 75em;
+    margin: auto;
+    background-color: rgb(250, 250, 250);
+}
+
+@media screen and (min-width: 60em) {
+    body {
+        background-color: rgb(250, 0, 0);
     }
 
-    h1 {
-        width: 7em;
+    nav ul li {
+        display: inline;
     }
 
-    p.slogan {
-        font-size: 2.8em;
+    main.menu ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 3em;
     }
 }
